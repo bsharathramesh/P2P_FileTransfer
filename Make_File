@@ -1,0 +1,40 @@
+Installation:
+1. Download Python3.7.4 on all the systems.
+
+Peer to Multi Peer Client (Sender) Code file: p2mpclient.py
+1. p2mpclient.py is the client (Sender) file.
+   Note: In p2mpclient.py <file_path> variable is set to the path where the <file-name> file is present.
+2. To Run the file execute the following command in the directory where the p2mpclient.py exist.
+3. python p2mpclient.py <server-1> <server-2> <server-3> <server-port> <file-name> <MSS>
+   <server-1> <server-2> <server-3> = The server IPs to which the file needs to be transfered.
+   <server-port> 7735 = The port on which the server (Reciever is running) 
+   <file-name> = The file name which needs to be transfered.
+   Note: In p2mpclient.py <file_path> variable is set to the path where the <file-name> file is present.
+   Example:
+   file_path = "C:\\Users\\shara\\OneDrive\\Desktop\\Point-To-Multipoint-master\\" + file_name + '.txt'
+   <MSS> - its the Maximum Segment Size which is set.
+
+Peer to Multi Peer Server(Reciever) Code file: p2mpserver.py
+1. To run the program
+   python p2mpserver.py 
+5. The user is then asked to enter the port number it would like to use to connect to other Peers.
+6. Enter the port number.
+7. The Peer Server is now active
+
+Peer Client:
+1. Open PeerClientImpl.py 
+2. Again set the filepaths where the local RFC files are stored (To store the new incoming files requested) and the csv file maintained (This is required to append the new RFC indexes to the csv file). (This should be the same filepaths as step 2 and step 3 in Peer Server)
+3. Run the program
+4. Enter the RS IP address
+5. Enter the RS port adddress
+6. An interactive menu will appear
+7. Enter 1 to register. You will be asked to enter a port number.
+8. This is the port number of the Peer Server this particular peer listens to. (Should be same as port entered in step 6 in Peer Server above)
+9. Once registered you can either 
+(a) ask for RFCs that the peer doesn't have locally
+- you will be asked to enter a list of RFCs you want
+- enter the list seperated by commas. For e.g. to request for RFCs 8034 to 8037, enter : rfc8034,rfc8035,rfc8036,rfc8037
+- once done, press enter. If any active peer has these files, they will be downloaded in the RFC folder and the RFC indexes will be updated in the csv file.
+(b) send a leave request to RS to leave the Peer system
+(c) send a keep alive request to the RS
+10. Once you leave you will have to send a Register request to become active again.
